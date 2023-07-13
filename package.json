@@ -1,0 +1,19 @@
+{
+  "name": "vue3-practise",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "element-plus": "^2.2.18",
+    "pinia": "^2.0.23",
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "vite": "^1.0.0-rc.13",
+    "vite-plugin-components": "^0.13.3",
+    "vite-plugin-style-import": "^2.0.0"
+  }
+}
