@@ -2,11 +2,11 @@
 <template>
   <div>
     <h1>人物简介</h1>
-    <p>姓名：{{toRefsdata.name.value}}</p>
-    <p>年龄：{{toRefsdata.age.value}}岁</p>
-    <p>爱好：{{toRefsdata.hobby.value.join('、')}}</p>
-    <p>地址：{{toRefsdata.addressprovice.value}} - {{toRefsdata.addresscity.value}}</p>
-    <p>描述：{{toRefsdata.description.value}}</p>
+    <p>姓名：{{data.name}}</p>
+    <p>年龄：{{data.age}}岁</p>
+    <p>爱好：{{data.hobby}}</p>
+    <p>地址：{{data.addressprovice}} - {{data.addresscity}}</p>
+    <p>描述：{{data.description}}</p>
     <button @click="changeReactive">
     修改信息
     </button> 
