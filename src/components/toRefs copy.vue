@@ -1,4 +1,3 @@
-//App.vue
 <template>
   <div>
     <h1>人物简介</h1>
