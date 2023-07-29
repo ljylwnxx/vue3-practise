@@ -1,34 +1,30 @@
 //App.vue
 <template>
   <div>
-    <h1>人物简介</h1>
-    <p>姓名：{{name}}</p>
-    <p>年龄：{{age}}岁</p>
-    <p>爱好：{{hobby.join('、')}}</p>
-    <p>地址：{{address.provice}} - {{ toRefCity }} </p>
-    <p>描述：{{description}}</p>
+    <h1>最想去的地方</h1>
+    <p>地址：{{address.provice}} - {{ address.city }} </p>
+    <button @click="modifyInfo">
+    修改信息
+    </button> 
   </div> 
 </template>
 
 <script setup>
-import { ref, reactive, toRef, toRefs, unref } from 'vue'
-    const name = ref('wnxx')
-    const age = 3
-    const hobby = ref(['打羽毛球', '旅游'])
-    const address = reactive({
-      provice: '云南省',
-      city: '丽江市'
+import { shallowRef } from 'vue'
+    const  name = '11'
+    const address = shallowRef({
+      provice: '浙江省',
+      city: '杭州市'
     })
-    const description = ref('非常的可爱，特别喜欢吃蜂蜜！')
-    const toRefCity = toRef(address, 'city')
-    const toRefsAddress = toRefs(address)
-
-    // 打印
-    console.log(unref(name))
-    console.log(unref(age))
-    console.log(unref(hobby))
-    console.log(unref(address))
-    console.log(unref(description))
-    console.log(unref(toRefCity))
-    console.log(unref(toRefsAddress))
+    
+    // 修改
+    const modifyInfo = () => {
+        address.value={
+          provice: '广西',
+          city: '桂林'
+        }
+       name.value = '222'
+        // address.value.city = '丽江市'
+        console.log(address, '修改address')
+    } 
 </script>
