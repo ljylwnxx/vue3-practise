@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <h1>最想去的地方</h1>
@@ -11,6 +10,7 @@
 
 <script setup>
 import { shallowRef } from 'vue'
+
     const address = shallowRef({
       provice: '浙江省',
       city: '杭州市'
@@ -18,8 +18,8 @@ import { shallowRef } from 'vue'
     
     // 修改
     const modifyInfo = () => {
-          address.value.provice = '广西',
-          address.value.city = '桂林'
-        }
+        address.value.provice = '云南省'
+        address.value.city = '丽江市'
         console.log(address, '修改address')
+    } 
 </script>

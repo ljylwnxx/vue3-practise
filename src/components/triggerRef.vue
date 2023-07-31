@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { shallowRef } from 'vue'
+import { shallowRef, triggerRef } from 'vue'
     
     const info = shallowRef({
       name: 'pupu',
@@ -27,7 +27,6 @@ import { shallowRef } from 'vue'
       },
       description: '一点也不可爱，不喜欢吃蜂蜜！'
     })
-    console.log(info, 'info未改')
 
     const modifyInfo = () => {
         info.value.name = 'wnxx'
@@ -36,6 +35,6 @@ import { shallowRef } from 'vue'
         info.value.address.provice = '云南省'
         info.value.address.city = '丽江市'
         info.value.description = '非常的可爱，特别喜欢吃蜂蜜！'
-        console.log(info, 'info修改')
+        triggerRef(info)
     }  
 </script>
