@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <h1>isReactive应用</h1>
@@ -46,7 +44,7 @@ import { ref, reactive, shallowRef, readonly, isReactive, shallowReactive } from
         city: '桂林市'
       })
     )
-   
+    // 测试函数
     const isReactiveFun = () => {
         console.log(isReactive(name.value), 'name')
         console.log(isReactive(age), 'age')
