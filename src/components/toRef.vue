@@ -3,7 +3,7 @@
     <h1>人物简介</h1>
     <p>姓名：{{nameRef}}</p>
     <p>年龄：{{ageRef}}岁</p>
-    <p>爱好：{{hobbyRef.join('、')}}</p>
+    <p>爱好：{{hobbiesRef.join('、')}}</p>
     <p>地址：{{proviceRef}} - {{cityRef}}</p>
     <p>描述：{{descriptionRef}}</p>
     <button @click="changeReactive">
@@ -17,7 +17,7 @@ import { reactive, toRef } from 'vue'
     const data = reactive ({
       name: 'pupu',
       age: 10,
-      hobby: ['唱歌', '画画'],
+      hobbies: ['唱歌', '画画'],
       address: {
         provice: '浙江省',
         city: '杭州市'
@@ -27,7 +27,7 @@ import { reactive, toRef } from 'vue'
     // 通过toRef创建一个Ref响应式
     const nameRef = toRef(data, 'name')
     const ageRef = toRef(data, 'age')
-    const hobbyRef = toRef(data, 'hobby')
+    const hobbiesRef = toRef(data, 'hobbies')
     const proviceRef = toRef(data.address, 'provice')
     const cityRef = toRef(data.address, 'city')
     const descriptionRef = toRef(data, 'description')
@@ -36,7 +36,7 @@ import { reactive, toRef } from 'vue'
     const changeReactive = () => {
         nameRef.value = 'wnxx'
         ageRef.value = 3 
-        hobbyRef.value = ['打羽毛球', '旅游']
+        hobbiesRef.value = ['打羽毛球', '旅游']
         proviceRef.value = '云南省'
         cityRef.value = '丽江市'
         descriptionRef.value = '非常的可爱，特别喜欢吃蜂蜜！'
@@ -46,8 +46,8 @@ import { reactive, toRef } from 'vue'
           "nameRef",
           ageRef, 
           "ageRef",
-          hobbyRef, 
-          "hobbyRef",
+          hobbiesRef, 
+          "hobbiesRef",
           proviceRef, 
           "proviceRef",
           cityRef, 
@@ -59,7 +59,7 @@ import { reactive, toRef } from 'vue'
         console.log(
           data.name,"data.name",
           data.age,"data.age",
-          data.hobby,"data.hobby",
+          data.hobbies,"data.hobbies",
           data.address.provice,"data.address.provice",
           data.address.city,"data.address.city",
           data.description,"data.description"
