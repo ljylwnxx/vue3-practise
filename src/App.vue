@@ -1,57 +1,37 @@
 <template>
   <div>
-    <h1>shallowReactive应用</h1>
-    <p>姓名：{{infoData.petName}}</p>
-    <p>年龄：{{infoData.age}}岁</p>
-    <p>爱好：{{infoData.hobbies.hobbyOne}} 、 {{ infoData.hobbies.hobbyTwo }}</p>
-    <p>地址：{{infoData.address.provice}} - {{ infoData.address.city }} </p>
-    <p v-if="infoData.description">描述：{{infoData.description}}</p>
-    <button @click="modifyNameFun">
-      修改姓名
-    </button> 
-    <button @click="addDescriptionFun">
-      添加属性
-    </button> 
-    <button @click="modifyAddressFun">
-      修改地址
+    <h1>人物简介</h1>
+    <p>姓名：{{data.name}}</p>
+    <p>年龄：{{data.age}}岁</p>
+    <p>爱好：{{data.hobbies.join('、')}}</p>
+    <p>地址：{{data.addres.provice}} - {{data.addres.city}}</p>
+    <p>描述：{{data.description}}</p>
+    <button @click="modifyInfo">
+    修改信息
     </button> 
   </div> 
 </template>
 
 <script setup>
-import { shallowReactive } from 'vue'
-    
-    const infoData = shallowReactive({
-      petName: 'pupu',
-      age: 3,
-      hobbies: {
-        hobbyOne: '打羽毛球',
-        hobbyTwo: '旅游'
+import { reactive } from 'vue'
+    const data = reactive ({
+      name: 'pupu',
+      age: 10,
+      hobbies: ['唱歌', '画画'],
+      addres: {
+        provice: '浙江省',
+        city: '杭州市'
       },
-      address: {
-        provice: '云南省',
-        city: '丽江市'
-      }
-    })
-    
-    // 修改姓名函数
-    const modifyNameFun = () => {
-      //  修改infoData对象的直接属性，会触发响应式更新
-      infoData.petName = 'wnxx'
-    }
+      description: '一点也不可爱，不喜欢吃蜂蜜！'
+      })
 
-    // 修改地址函数
-    const modifyAddressFun = () => {
-        //  修改infoData对象的嵌套属性，不会触发响应式更新
-        infoData.address.provice = '广西省',
-        infoData.address.city = '桂林市'
-        console.log('地址信息已经更新完成')
-        console.log(infoData.address, '地址')
-    }
-
-    // 添加新的属性
-    const addDescriptionFun =() => { 
-        infoData.description = '非常的可爱，特别喜欢吃蜂蜜！'
-    }
+    const modifyInfo = () => {
+        data.name = 'wnxx'
+        data.age = 3 
+        data.hobbies = ['打羽毛球', '旅游']
+        data.addres.provice = '云南省'
+        data.addres.city = '丽江市'
+        data.description = '非常的可爱，特别喜欢吃蜂蜜！'
+        console.log(data.name,data.hobbies,data.addres)
+    } 
 </script>
-
