@@ -4,7 +4,7 @@
     <h1>人物简介</h1>
     <p>姓名：{{name}}</p>
     <p>年龄：{{age}}岁</p>
-    <p>爱好：{{hobby.join('、')}}</p>
+    <p>爱好：{{hobbies.join('、')}}</p>
     <p>地址：{{address.provice}} - {{ address.city }} </p>
     <p>描述：{{description}}</p>
     <button @click="modifyInfo">
@@ -17,7 +17,7 @@
 import { ref, shallowRef } from 'vue'
     const name = ref('pupu')
     const age = ref(10)
-    const hobby = ref(['唱歌', '画画'])
+    const hobbies = ref(['唱歌', '画画'])
     const address = shallowRef({
       provice: '浙江省',
       city: '杭州市'
@@ -27,7 +27,7 @@ import { ref, shallowRef } from 'vue'
     const modifyInfo = () => {
         name.value = 'wnxx'
         age.value = 3 
-        hobby.value = ['打羽毛球', '旅游']
+        hobbies.value = ['打羽毛球', '旅游']
         address.value.provice = '云南省'
         address.value.city = '丽江市'
         description.value = '非常的可爱，特别喜欢吃蜂蜜！'
