@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, toRaw } from 'vue'
+import {reactive, toRaw } from 'vue'
     
     const info = reactive({
       name: 'pupu',

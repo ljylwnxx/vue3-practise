@@ -1,11 +1,10 @@
 <template>
   <div>
     <h1>人物简介</h1>
-    <p>姓名：{{info.name}}</p>
-    <p>年龄：{{info.age}}岁</p>
-    <p>爱好：{{info.hobbies.join('、')}}</p>
-    <p>地址：{{info.address.provice}} - {{ info.address.city }} </p>
-    <p>描述：{{info.description}}</p>
+    <p>姓名：{{name}}</p>
+    <p>年龄：{{age}}岁</p>
+    <p>爱好：{{hobbies.join('、')}}</p>
+    <p>描述：{{description}}</p>
     <button @click="modifyInfo">
       修改原响应式数据
     </button>
@@ -16,40 +15,34 @@
 </template>
 
 <script setup>
-import { ref, reactive, toRaw } from 'vue'
+import { ref, toRaw } from 'vue'
     
-    const info = reactive({
-      name: 'pupu',
-      age: 10,
-      hobbies: ['唱歌', '画画'],
-      address: {
-        provice: '浙江省',
-        city: '杭州市'        
-      },
-      description: '一点也不可爱，不喜欢吃蜂蜜！'
-    })
-    
-    const newInfo = toRaw(info)
-    console.log(newInfo, 'newInfo')
+    const name = ref('pupu')
+    const age = ref(10)
+    const hobbies = ref(['唱歌', '画画'])
+    const description = ref('一点也不可爱，不喜欢吃蜂蜜！')
+   
+    const nameInfo = toRaw(name)
+    const ageInfo = toRaw(age)
+    const hobbiesInfo = toRaw(hobbies)
+    const descriptionInfo = toRaw(description)
+    console.log(name,age,hobbies,description, 'info')
     
     const modifyInfo = () => {
-        info.name = 'wnxx'
-        info.age = 3 
-        info.hobbies = ['打羽毛球', '旅游']
-        info.address.provice = '云南省'
-        info.address.city = '丽江市'
-        info.description = '非常的可爱，特别喜欢吃蜂蜜！'
-        console.log(newInfo, 'newInfo改后')
-        console.log(info, 'info')
-    }
+        name.value = 'wnxx'
+        age.value = 3 
+        hobbies.value = ['打羽毛球', '旅游']
+        description.value = '非常的可爱，特别喜欢吃蜂蜜！'
+        console.log(name,age,hobbies,description, 'info改后')
+        console.log(nameInfo,ageInfo,hobbiesInfo,descriptionInfo, 'Info')
+    } 
     
     const modifyNewInfo = () => {
-        newInfo.name = 'pupu'
-        newInfo.age = 10 
-        newInfo.hobbies = ['唱歌', '画画']
-        newInfo.address.provice = '浙江省'
-        newInfo.address.city = '杭州市' 
-        newInfo.description = '一点也不可爱，不喜欢吃蜂蜜！'
-        console.log(info, 'info改后')
+        nameInfo.value = 'pupu'
+        ageInfo.value = 10 
+        hobbiesInfo.value = ['唱歌', '画画']
+        descriptionInfo.value = '一点也不可爱，不喜欢吃蜂蜜！'
+        console.log(nameInfo,ageInfo,hobbiesInfo,descriptionInfo, 'Info改后')
+        console.log(name,age,hobbies,description, 'info改后')
     }
 </script>
