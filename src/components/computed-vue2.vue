@@ -36,3 +36,22 @@ export default {
   }
 }
 </script>
+
+<!-- <div>Hello,大家好，我的全名叫：：{{ fullName }}</div> -->
+
+<!-- <script>
+export default {
+  data() {
+    return {
+      firstName: 'wn',
+      lastName: 'xx'
+    }
+  },
+  
+  computed: {
+    fullName() {
+      return this.firstName + this.lastName
+    }
+  }
+}
+</script> -->
