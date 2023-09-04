@@ -6,6 +6,9 @@
     <p>爱好：{{info.hobbies.join('、')}}</p>
     <p>地址：{{info.address.provice}} - {{info.address.city}}</p>
     <p>描述：{{info.description}}</p>
+    <button @click="modifyInfo">
+      修改数据
+    </button>
   </div> 
 </template>
 
@@ -32,15 +35,11 @@ import { ref, reactive, watchEffect } from 'vue'
         info.description = '非常的可爱，特别喜欢吃蜂蜜！'   
     } 
     
-   const unwatchEffect = watchEffect((onInvalidate) => {
+    watchEffect(
+      (onInvalidate) => {
         console.log(name.value, 'name')
         onInvalidate(()=> {
           console.log('执行了onInvalidate')
         })
-    })
-
-    setTimeout(()=> {
-      modifyInfo()
-      unwatchEffect()
-    }, 1000)
+      })
 </script>
